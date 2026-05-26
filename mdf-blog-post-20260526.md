@@ -1,10 +1,13 @@
 ---
 title: "MDF — Markdown First: A Proposal for the Agent-Readable Web"
+slug: "mdf-markdown-first"
 date: 2026-05-26
+author: "Gary Walker & Graham Hall"
 description: "The web was built for human eyes. AI agents are paying an enormous tax for that. We think there's a better way — and we've written the proposal."
 tags: ["ai", "open-source", "web-standards", "self-hosted", "bitcoin"]
-authors: ["Gary Walker", "Graham Hall"]
+status: published
 ---
+
 
 If you run a website and you've been watching your server logs lately, you've probably noticed something: a significant and growing portion of your traffic isn't human. AI agents, crawlers, and automated pipelines are fetching your content constantly — and they're doing it the hard way.
 
