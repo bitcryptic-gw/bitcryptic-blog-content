@@ -27,10 +27,4 @@ status: draft | published  # only published posts are served
 2. Add frontmatter matching the schema above
 3. Write content in standard markdown
 4. Set `status: published` when ready to go live
-5. Commit and push — the server picks it up within the next poll cycle
-
-## Authoring via k2
-
-k2 (NanoClaw agent) has commit access via deploy key.
-Draft posts (`status: draft`) can be committed freely — they won't be served until
-the status is flipped to `published`.
+5. Commit and push — the live site picks it up automatically
