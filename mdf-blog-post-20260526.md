@@ -125,4 +125,4 @@ If you're building AI agents, running content sites, or working on web standards
 
 ---
 
-*MDF is a community proposal by Gary Walker ([BitCryptic™](https://bitcryptic.com)) and Graham Hall (Slepner). It is not affiliated with or endorsed by Cloudflare, Anthropic, Answer.AI, or any other organisation mentioned herein.*
+*MDF is a community proposal by Gary Walker ([BitCryptic™](https://bitcryptic.com)) and Graham Hall ([Slepner](https://slepner.com.au)). It is not affiliated with or endorsed by Cloudflare, Anthropic, Answer.AI, or any other organisation mentioned herein.*
