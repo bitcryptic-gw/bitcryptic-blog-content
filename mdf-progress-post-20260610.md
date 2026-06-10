@@ -1,9 +1,11 @@
 ---
 title: "MDF Two Weeks On: Real Lightning Payments, a WordPress Plugin, and What the Logs Told Us"
+slug: "mdf-two-weeks-on"
 date: 2026-06-10
+author: "Gary Walker & Graham Hall"
 description: "When we published the MDF proposal, both payment rails were stubs. Now real sats are moving, the demo is listed in payment indexes, and our own WordPress logs make the case better than we could."
 tags: ["ai", "open-source", "web-standards", "self-hosted", "bitcoin", "lightning"]
-authors: ["Gary Walker", "Graham Hall"]
+status: published
 ---
 
 When we [published the MDF proposal](https://blog.bitcryptic.com/blog/mdf-markdown-first) a couple of weeks ago, we were upfront that the payment layer of the reference implementation was stubbed — structural validation only, no real money moving. We also said the open questions section was a genuine invitation, not a rhetorical one.
