@@ -20,10 +20,12 @@ The headline: **L402 payment verification is production-complete**. The demo ser
 
 Which means this works, right now, for anyone:
 
+
 ```bash
 # Returns 402 with a real Lightning invoice in the challenge
 curl -H "Accept: text/markdown" https://mdf-demo.bitcryptic.com/micropayment/intro
 ```
+
 
 Pay the one-satoshi invoice with any Lightning wallet, present the preimage, get the content. The full MDF loop — discover, get challenged, pay, access — is no longer a diagram. It costs less than a hundredth of a cent and settles in under a second, which is exactly the property that makes "price as access policy" viable at micropayment scale.
 
@@ -75,6 +77,7 @@ If your site is heavily interactive, app-like, or its value lives in the present
 
 Everything is live, open, and self-hostable:
 
+
 ```bash
 # The full loop, with real Lightning payment
 curl -H "Accept: text/markdown" https://mdf-demo.bitcryptic.com/micropayment/intro
@@ -85,6 +88,7 @@ curl -H "Accept: text/markdown" https://mdf-demo.bitcryptic.com/micropayment/int
 # Measure agent traffic on your WordPress site
 # github.com/bitcryptic-gw/mdf-analytics-wp
 ```
+
 
 The proposal remains at [github.com/bitcryptic-gw/mdf](https://github.com/bitcryptic-gw/mdf), the open questions remain open, and the issues tab remains the front door. The most valuable contributions so far have come from people telling us what we got wrong. More of that, please.
 
