@@ -35,7 +35,7 @@ The demo's three paid tiers are also now listed on [402index.io](https://402inde
 
 x402 — the EVM/stablecoin rail — remains stubbed, and the reason why turned out to be one of the more interesting problems in the whole architecture. More on that below.
 
-## The Community Did Its Job
+## The Community Came Through
 
 We opened issues across the ecosystem — the x402 community repo, the llms.txt project, 402index — asking the questions our open questions section flagged. The responses materially improved the spec's direction.
 
