@@ -2,10 +2,14 @@
 title: "MDF — Markdown First: A Proposal for the Agent-Readable Web"
 slug: "mdf-markdown-first"
 date: 2026-05-26
+updated: 2026-11-15
 author: "Gary Walker & Graham Hall"
 description: "The web was built for human eyes. AI agents are paying an enormous tax for that. We think there's a better way — and we've written the proposal."
 tags: ["ai", "open-source", "web-standards", "self-hosted", "bitcoin"]
 status: published
+superseded_by: "mdf-0-3-whats-changed"
+superseded_on: 2026-11-15
+superseded_note: "Prices, payment rails and settlement have all changed since this proposal."
 ---
 
 
@@ -17,7 +21,7 @@ This is wasteful by design, and nobody wins.
 
 ## The HTML Tax
 
-Here's a number that puts it in perspective: a typical blog post fetched as HTML consumes roughly 5–10 times more tokens than the actual content it contains. One benchmark from Cloudflare's engineering team shows a single page consuming 16,180 tokens as HTML versus 3,150 as markdown — an 80% overhead, every fetch, at scale.
+Here's a number that puts it in perspective: a typical blog post fetched as HTML consumes roughly 5–10 times more tokens than the actual content it contains. One benchmark from Cloudflare's engineering team shows a single page consuming 16,180 tokens as HTML versus 3,150 as markdown — ~~an 80% overhead~~ an 80% smaller response, about 5x cheaper to consume, corrected 2026-11 — every fetch, at scale.
 
 For large AI operators processing millions of pages daily, that overhead represents real money and real compute. For the content creators whose work is being consumed, it represents nothing — no attribution, no compensation, no signal that their content is even being used.
 
@@ -50,9 +54,9 @@ The core idea has three parts.
 | Price | What it means |
 |-------|---------------|
 | `$0.00` | Open — serve immediately |
-| `$0.0001` | Micropayment — offset infrastructure costs; still cheaper for AI operators than parsing HTML |
-| `$1.00+` | Premium gated content |
-| `$100.00+` | Private — payment triggers auth token issuance rather than content delivery |
+| ~~`$0.0001`~~ 1 sat | Micropayment — offset infrastructure costs; still cheaper for AI operators than parsing HTML, corrected 2026-11 |
+| ~~`$1.00+`~~ $0.01 | Premium gated content, corrected 2026-11 |
+| ~~`$100.00+`~~ $0.10 | Private — payment triggers auth token issuance rather than content delivery, corrected 2026-11 |
 
 That last tier is worth dwelling on. At high price points, the payment stops being a transaction and starts being a credential request. You pay, the server verifies, you receive a time-limited bearer token. Full authentication with no passwords, no OAuth, no API key management — payment is the identity proof. For operators running private knowledge bases or internal documentation, this is a genuinely different model.
 
@@ -88,7 +92,7 @@ But MDF itself is a community proposal, not a BitCryptic product. We're publishi
 
 The reference implementation is complete and live. `mdf-server` is a self-hostable Docker image deployed at **https://mdf-demo.bitcryptic.com** — you can hit it right now.
 
-It serves markdown natively from a content directory, renders HTML dynamically for browser requests, auto-generates `/llms.txt` and `/mdf.json` from a single `mdf.yaml` config, and handles all three payment tiers end-to-end. Both x402 (EVM) and L402 (Lightning) payment rails are stubbed — structural validation is in place, on-chain and Lightning invoice verification are the next milestones. Bearer token issuance for high-price-tier access is fully implemented.
+It serves markdown natively from a content directory, renders HTML dynamically for browser requests, auto-generates `/llms.txt` and `/mdf.json` from a single `mdf.yaml` config, and ~~handles all three payment tiers end-to-end~~ now runs the paid tiers end to end on two live rails (see [the 0.3 post](/blog/mdf-0-3-whats-changed/)), corrected 2026-11. Both x402 (EVM) and L402 (Lightning) payment rails are stubbed — structural validation is in place, on-chain and Lightning invoice verification are the next milestones. Bearer token issuance for high-price-tier access is fully implemented.
 
 Try it:
 

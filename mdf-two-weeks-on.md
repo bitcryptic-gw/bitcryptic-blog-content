@@ -2,10 +2,14 @@
 title: "MDF Two Weeks On: Real Lightning Payments, a WordPress Plugin, and What the Logs Told Us"
 slug: "mdf-two-weeks-on"
 date: 2026-06-10
+updated: 2026-11-15
 author: "Gary Walker & Graham Hall"
 description: "When we published the MDF proposal, both payment rails were stubs. Now real sats are moving, the demo is listed in payment indexes, and our own WordPress logs make the case better than we could."
 tags: ["ai", "open-source", "web-standards", "self-hosted", "bitcoin", "lightning"]
 status: published
+superseded_by: "mdf-0-3-whats-changed"
+superseded_on: 2026-11-15
+superseded_note: "Pricing and payment rails have changed, and the invoice example below was not payable when this was published."
 ---
 
 When we [published the MDF proposal](https://blog.bitcryptic.com/blog/mdf-markdown-first) a couple of weeks ago, we were upfront that the payment layer of the reference implementation was stubbed — structural validation only, no real money moving. We also said the open questions section was a genuine invitation, not a rhetorical one.
@@ -16,24 +20,26 @@ Also, since then, Cloudflare published a number that reframes the whole conversa
 
 ## Lightning Payments Are Live
 
-The headline: **L402 payment verification is production-complete**. The demo server at [mdf-demo.bitcryptic.com](https://mdf-demo.bitcryptic.com) now creates real Lightning invoices, issues HMAC-bound macaroon credentials, and verifies payment preimages against settled invoices. We've tested it end-to-end with real sats over a live Lightning channel.
+The headline: **~~L402 payment verification is production-complete~~ L402 is now an optional compatibility challenge; the Lightning rail is x402 exact on lnbtc and 0.3.0 has settled it live at 1 sat, corrected 2026-11**. The demo server at [mdf-demo.bitcryptic.com](https://mdf-demo.bitcryptic.com) now creates real Lightning invoices~~, issues HMAC-bound macaroon credentials,~~ and verifies payment preimages against settled invoices, corrected 2026-11. We've tested it end-to-end with real sats over a live Lightning channel.
 
 Which means this works, right now, for anyone:
 
 
 ```bash
 # Returns 402 with a real Lightning invoice in the challenge
+# (corrected 2026-11: no invoice was minted for this route between 2026-05-30
+#  and 2026-09-20, so this command could not be paid in that window)
 curl -H "Accept: text/markdown" https://mdf-demo.bitcryptic.com/micropayment/intro
 ```
 
 
-Pay the one-satoshi invoice with any Lightning wallet, present the preimage, get the content. The full MDF loop — discover, get challenged, pay, access — is no longer a diagram. It costs less than a hundredth of a cent and settles in under a second, which is exactly the property that makes "price as access policy" viable at micropayment scale.
+~~Pay the one-satoshi invoice~~ this route returned no payable invoice from 2026-05-30 to 2026-09-20 (an invoice-units bug, explained in the [0.3 post](/blog/mdf-0-3-whats-changed/)); it has issued a real 1-sat invoice since 2026-09-20, corrected 2026-11. Pay it with any Lightning wallet, present the preimage, get the content. The full MDF loop — discover, get challenged, pay, access — is no longer a diagram. It costs ~~less than a hundredth of a cent~~ one satoshi — about a tenth of a US cent at around US$100k per bitcoin, corrected 2026-11 — and settles in under a second, which is exactly the property that makes "price as access policy" viable at micropayment scale.
 
-The stack behind it is deliberately boring: [Alby Hub](https://albyhub.com), self-hosted in Docker, talking to the MDF server over a REST API. That's a design point, not an accident. The MDF spec mandates that payment occurred — it doesn't mandate *how you verify it*. Alby Hub is one answer for Lightning; run whatever node implementation you like.
+The stack behind it is deliberately boring: [Alby Hub](https://albyhub.com), self-hosted in Docker, ~~talking to the MDF server over a REST API~~ over NWC, make_invoice only, corrected 2026-11. That's a design point, not an accident. The MDF spec mandates that payment occurred — it doesn't mandate *how you verify it*. Alby Hub is one answer for Lightning; run whatever node implementation you like.
 
 The demo's three paid tiers are also now listed on [402index.io](https://402index.io), an emerging directory of L402-enabled endpoints — domain-verified and health-checked. Agents looking for payable content can discover ours without ever visiting this blog.
 
-x402 — the EVM/stablecoin rail — remains stubbed, and the reason why turned out to be one of the more interesting problems in the whole architecture. More on that below.
+x402 — the EVM/stablecoin rail — ~~remains stubbed~~ is live on Base mainnet since 2026-11-13, corrected 2026-11, and the reason why turned out to be one of the more interesting problems in the whole architecture. More on that below.
 
 ## The Community Came Through
 
