@@ -1,0 +1,1 @@
+Throwaway PR used to probe branch-protection refusals (T5). Safe to close.
