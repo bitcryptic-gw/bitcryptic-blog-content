@@ -2,6 +2,7 @@
 title: "MDF 0.3: What's Changed, What We Got Wrong, and Where It Stands"
 slug: "mdf-0-3-whats-changed"
 date: 2026-11-15
+updated: 2026-11-20
 description: "Markdown First is now on x402 v2 with Lightning and USDC both settling live in production. Here's what changed since our last post, and two corrections we owe readers."
 author: "Gary Walker"
 tags: ["MDF", "x402", "Lightning", "agents", "AEO"]
@@ -52,7 +53,7 @@ The two earlier MDF posts now carry a dated "kept for the record" banner and mar
 
 ## Why markdown, and why now
 
-Our original measurement found the same page cost about 5x more tokens as HTML than as markdown. That ratio is why MDF exists: if agents are going to read the web at scale, the cheap format should be the default one, and the people producing the content should have a way to be paid for it.
+~~Our original measurement found~~ Cloudflare's measurement of one of its own pages found ([16,180 vs 3,150 tokens](https://blog.cloudflare.com/markdown-for-agents/), corrected 2026-11) the same page cost about 5x more tokens as HTML than as markdown. That ratio is why MDF exists: if agents are going to read the web at scale, the cheap format should be the default one, and the people producing the content should have a way to be paid for it.
 
 The rest of the industry has moved the same way. Cloudflare now converts pages to markdown at the edge for agents that ask with `Accept: text/markdown`, and coding agents send that header already. Yet when Cloudflare scanned the 200,000 most-visited domains this year, only 3.9% served markdown when asked. There's room for sites that do it properly, with markdown written at the source rather than converted at the edge.
 
